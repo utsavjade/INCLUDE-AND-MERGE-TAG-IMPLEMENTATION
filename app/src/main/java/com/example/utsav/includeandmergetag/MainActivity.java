@@ -70,10 +70,10 @@ public class MainActivity extends ActionBarActivity {
                     holder.button.setBackgroundResource(R.drawable.img1);
                     break;
                 case 1:
-                    holder.button.setBackgroundColor(R.drawable.img2);
+                    holder.button.setBackgroundResource(R.drawable.img2);
                     break;
                 case 2:
-                    holder.button.setBackgroundColor(R.drawable.img3);
+                    holder.button.setBackgroundResource(R.drawable.img3);
 
             }
             return convertView;
