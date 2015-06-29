@@ -95,8 +95,16 @@ public class MainActivity extends ActionBarActivity {
                         Log.d("TAG", "click");
                     }
                 });
-                flag = 0;
-
+                flag = 4;
+                break;
+            case 4:
+                setContentView(R.layout.style_layout);
+                flag=5;
+                break;
+            case 5:
+                setContentView(R.layout.style_layout2);
+                flag=0;
+                break;
         }
 
     }

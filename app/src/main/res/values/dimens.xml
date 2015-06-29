@@ -4,5 +4,6 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="grid_view_column_width">200dp</dimen>
     <dimen name="grid_view_horizontal_spacing">10dp</dimen>
+    <dimen name="style_layout_text_size">18sp</dimen>
     <dimen name="grid_view_vertical_spacing">10dp</dimen>
 </resources>
