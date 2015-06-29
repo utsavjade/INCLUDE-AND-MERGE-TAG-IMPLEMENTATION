@@ -7,8 +7,8 @@
     <Button
         android:id="@+id/button1"
         android:layout_alignParentLeft="true"
-        android:layout_width="wrap_content"
-        android:layout_height="250dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerVertical="true"
         android:text="SWITCH LAYOUT"
         android:onClick="click"/>
