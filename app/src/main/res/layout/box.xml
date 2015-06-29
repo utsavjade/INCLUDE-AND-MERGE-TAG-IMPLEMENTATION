@@ -10,8 +10,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerVertical="true"
-        android:text="SWITCH LAYOUT"
-        android:onClick="click"/>
+        android:text="@string/button_text_switch_layout"
+        android:onClick="clickToSwitchLayout"/>
 
     <LinearLayout
         android:layout_toRightOf="@id/button1"

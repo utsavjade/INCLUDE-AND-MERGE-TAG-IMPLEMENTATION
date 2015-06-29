@@ -28,103 +28,13 @@ public class MainActivity extends ActionBarActivity {
     private View layout1, layout2, layout3;
     private int flag;
 
-    private class IListAdapter extends BaseAdapter {
-        public class ItemHolder {
-            Button button;
-            EditText editText1, editText2, editText3;
-            TextView tv;
-        }
 
-        private ArrayList<String[]> contactsArray;
-        private boolean isGrid;
 
-        public IListAdapter(ArrayList<String[]> contactsArray, boolean isGrid) {
-            this.contactsArray = contactsArray;
-            this.isGrid = isGrid;
-        }
-
-        @Override
-        public int getCount() {
-            return contactsArray.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return contactsArray.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(final int position, View convertView, ViewGroup parent) {
-            ItemHolder holder;
-            if (isGrid) {
-                if (convertView == null) {
-                    Logger.d("1");
-
-                    holder = new ItemHolder();
-                    convertView = getLayoutInflater().inflate(R.layout.grid_box, null);
-                    Logger.d("1");
-                    holder.tv = ((TextView) convertView.findViewById(R.id.tv));
-                    Logger.d("1");
-                    holder.button = (Button)convertView.findViewById(R.id.button);
-                    convertView.setTag(holder);
-                    Logger.d("2");
-                }
-                Logger.d("3");
-                holder = (ItemHolder) convertView.getTag();
-                Logger.d("4");
-                holder.tv.setText(contactsArray.get(position)[0]);
-                holder.button.setClickable(false);
-                Logger.d("5");
-            } else {
-
-                if (convertView == null) {
-                    holder = new ItemHolder();
-                    convertView = getLayoutInflater().inflate(R.layout.box, null);
-                    holder.button = (Button) convertView.findViewById(R.id.button1);
-                    holder.button.setText("SWITCH LAYOUT");
-                    holder.editText1 = (EditText) convertView.findViewById(R.id.editText1);
-                    holder.editText2 = (EditText) convertView.findViewById(R.id.editText2);
-                    holder.editText3 = (EditText) convertView.findViewById(R.id.editText3);
-                    convertView.setTag(holder);
-                }
-                holder = (ItemHolder) convertView.getTag();
-                holder.editText1.setText(contactsArray.get(position)[0]);
-                holder.editText2.setText(contactsArray.get(position)[1]);
-                holder.editText3.setText(contactsArray.get(position)[2]);
-                holder.editText1.setFocusable(false);
-                holder.editText2.setFocusable(false);
-                holder.editText3.setFocusable(false);
-
-            }
-            Logger.d("6");
-            holder.button.setFocusable(false);
-
-            Logger.d("7");
-            switch (position % 3) {
-                case 0:
-                    holder.button.setBackgroundResource(R.drawable.img1);
-                    break;
-                case 1:
-                    holder.button.setBackgroundResource(R.drawable.img2);
-                    break;
-                case 2:
-                    holder.button.setBackgroundResource(R.drawable.img3);
-
-            }
-            Logger.d("8");
-            return convertView;
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        click(null);
+        clickToSwitchLayout(null);
 /*
         setContentView(R.layout.include_tag_layout);
         ((EditText) findViewById(R.id.layout2).findViewById(R.id.editText1)).setText("abcd\nefgh\nijklm");
@@ -133,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
 */
     }
 
-    public void click(View view) {
+    public void clickToSwitchLayout(View view) {
         switch (flag) {
             case 0:
                 setContentView(R.layout.activity_main);
@@ -141,7 +51,7 @@ public class MainActivity extends ActionBarActivity {
                 for (int i = 0; i < 20; i++) {
                     arrayList.add(new String[]{"utsav" + i, "utsav" + i + "@mail", "utsav" + i + "@jade"});
                 }
-                IListAdapter adapter = new IListAdapter(arrayList,false);
+                IListAdapter adapter = new IListAdapter(arrayList,false,this);
                 ListView listView = (ListView) findViewById(R.id.list_item);
                 listView.setAdapter(adapter);
                 //listView.se
@@ -173,7 +83,7 @@ public class MainActivity extends ActionBarActivity {
                 for (int i = 0; i < 20; i++) {
                     arrayList1.add(new String[]{"utsav" + i, "utsav" + i + "@mail", "utsav" + i + "@jade"});
                 }
-                IListAdapter adapter1 = new IListAdapter(arrayList1,true);
+                IListAdapter adapter1 = new IListAdapter(arrayList1,true,this);
                 GridView gridView = (GridView) findViewById(R.id.gridview);
                 gridView.setAdapter(adapter1);
                 //listView.se
@@ -181,7 +91,7 @@ public class MainActivity extends ActionBarActivity {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Toast.makeText(getBaseContext(), "item id:" + position, Toast.LENGTH_SHORT).show();
-                        click(view);
+                        clickToSwitchLayout(view);
                         Log.d("TAG", "click");
                     }
                 });
