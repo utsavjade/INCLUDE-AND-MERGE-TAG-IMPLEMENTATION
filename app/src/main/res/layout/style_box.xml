@@ -3,18 +3,18 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent" >
     <EditText
-        style="@style/etntv"
+        style="@style/EditTextAndTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"/>
     <Button
-        style="@style/btetntv"
+        style="@style/EditTextAndTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/switch_layout"
         android:onClick="clickToSwitchLayout"/>
     <TextView
-        style="@style/etntv"
+        style="@style/EditTextAndTextViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"/>

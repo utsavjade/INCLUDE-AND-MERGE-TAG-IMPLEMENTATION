@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * Created by utsav on 29/6/15.
  */
 public class IListAdapter extends BaseAdapter {
+   
     public class ItemHolder {
         Button button;
         EditText editText1, editText2, editText3;
@@ -67,7 +68,7 @@ public class IListAdapter extends BaseAdapter {
                 holder = new ItemHolder();
                 convertView = activity.getLayoutInflater().inflate(R.layout.box, null);
                 holder.button = (Button) convertView.findViewById(R.id.button1);
-                holder.button.setText("SWITCH LAYOUT");
+                holder.button.setText(activity.getString(R.string.test));
                 holder.editText1 = (EditText) convertView.findViewById(R.id.editText1);
                 holder.editText2 = (EditText) convertView.findViewById(R.id.editText2);
                 holder.editText3 = (EditText) convertView.findViewById(R.id.editText3);

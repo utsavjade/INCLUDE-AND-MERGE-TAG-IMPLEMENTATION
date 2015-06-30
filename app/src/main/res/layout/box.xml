@@ -12,6 +12,7 @@
         android:layout_centerVertical="true"
         android:text="@string/switch_layout"
         android:onClick="clickToSwitchLayout"
+        android:tag="@string/param_1"
         />
 
     <LinearLayout

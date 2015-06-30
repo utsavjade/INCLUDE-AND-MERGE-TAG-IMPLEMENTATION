@@ -4,14 +4,17 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
-    <style name="etntv">
+    <style name="EditTextAndTextViewStyle">
         <item name="android:textSize">@dimen/style_layout_text_size</item>
         <item name="android:textColor">@color/blue</item>
     </style>
-    <style name="btetntv" parent="etntv">
+    <style name="ButtonStyle" parent="EditTextAndTextViewStyle">
         <item name="android:background">@color/black</item>
     </style>
-    <style name="tv2" parent="etntv">
+    <style name="TextStyleBold" parent="EditTextAndTextViewStyle">
         <item name="android:textStyle">bold</item>
+    </style>
+    <style name="EditTextStyleRightToLeft" parent="EditTextAndTextViewStyle">
+        <item name="android:textDirection">rtl</item>
     </style>
 </resources>

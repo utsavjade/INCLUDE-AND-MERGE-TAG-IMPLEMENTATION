@@ -1,6 +1,7 @@
 package com.example.utsav.includeandmergetag;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -34,7 +35,9 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        clickToSwitchLayout(null);
+        Intent intent=new Intent(this,ImageDownloadActivity.class);
+        startActivity(intent);
+        //clickToSwitchLayout(null);
 /*
         setContentView(R.layout.include_tag_layout);
         ((EditText) findViewById(R.id.layout2).findViewById(R.id.editText1)).setText("abcd\nefgh\nijklm");
@@ -44,6 +47,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void clickToSwitchLayout(View view) {
+
         switch (flag) {
             case 0:
                 setContentView(R.layout.activity_main);
