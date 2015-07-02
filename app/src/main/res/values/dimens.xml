@@ -6,4 +6,5 @@
     <dimen name="grid_view_horizontal_spacing">10dp</dimen>
     <dimen name="style_layout_text_size">18sp</dimen>
     <dimen name="spacing_10dp">10dp</dimen>
+    <dimen name="textSize_50sp">50sp</dimen>
 </resources>

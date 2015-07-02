@@ -1,27 +1,21 @@
 package com.example.utsav.includeandmergetag;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.AttributedCharacterIterator;
+import com.example.utsav.includeandmergetag.CounterTaskViaFragment.FragmentAndTaskActivity;
+import com.example.utsav.includeandmergetag.TwoButtonTwoFragment.TwoButtonActivity;
+
 import java.util.ArrayList;
 
 
@@ -35,8 +29,12 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent=new Intent(this,ImageDownloadActivity.class);
+        /*Intent intent=new Intent(this,ImageDownloadActivity.class);
         startActivity(intent);
+        */
+        Intent intent=new Intent(this, TwoButtonActivity.class);
+        startActivity(intent);
+
         //clickToSwitchLayout(null);
 /*
         setContentView(R.layout.include_tag_layout);
