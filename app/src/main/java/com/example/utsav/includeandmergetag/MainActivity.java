@@ -1,6 +1,11 @@
 package com.example.utsav.includeandmergetag;
 
+import android.app.Service;
 import android.content.Intent;
+import android.location.LocationManager;
+import android.location.LocationProvider;
+import android.net.Uri;
+import android.os.IBinder;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +29,14 @@ public class MainActivity extends ActionBarActivity {
     private int flag;
 
 
+    class Ser extends Service{
 
+        @Override
+        public IBinder onBind(Intent intent) {
+
+            return null;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +44,15 @@ public class MainActivity extends ActionBarActivity {
         /*Intent intent=new Intent(this,ImageDownloadActivity.class);
         startActivity(intent);
         */
-        Intent intent=new Intent(this, TwoButtonActivity.class);
+/*
+        Intent intent=new Intent(Intent.ACTION_SEND);
+        intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL,new String[]{"recipient@gamil.com"});
+        startActivity(Intent.createChooser(intent,"email"));
+*/
+        Intent intent=new Intent(this,com.example.utsav.includeandmergetag.ServiceDatabaseEntry.MainActivity.class);
         startActivity(intent);
-
         //clickToSwitchLayout(null);
 /*
         setContentView(R.layout.include_tag_layout);
@@ -120,11 +138,7 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;

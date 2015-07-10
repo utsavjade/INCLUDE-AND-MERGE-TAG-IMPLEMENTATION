@@ -39,15 +39,5 @@ public class IFragment extends Fragment {
         return contentView;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-    }
 
 }

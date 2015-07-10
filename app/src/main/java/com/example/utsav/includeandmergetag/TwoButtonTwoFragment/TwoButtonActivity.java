@@ -1,11 +1,11 @@
 package com.example.utsav.includeandmergetag.TwoButtonTwoFragment;
 
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +29,8 @@ public class TwoButtonActivity extends ActionBarActivity {
         setContentView(R.layout.activity_two_button);
         mFragmentHolder = (ViewGroup) findViewById(R.id.fragmentHolder);
         mFragmentManager = getSupportFragmentManager();
+        FragmentManager.BackStackEntry entry;
+
     }
 
     public void onClickToSwitch(View view) {
@@ -39,21 +41,42 @@ public class TwoButtonActivity extends ActionBarActivity {
             case R.id.button2:
                 addFragment("BYE");
                 break;
+            case R.id.button3:
+                addFragment("YO");
+                break;
+
         }
     }
 
     private void addFragment(String text) {
-        Logger.d("1");
-        int i = 0;
+/*
+ArrayList<FragmentManager.BackStackEntry> backStackEntries=new ArrayList<>();
+        if(mFragmentManager.getBackStackEntryCount()>0 && mFragmentManager.findFragmentByTag(text)!=null){
+            for(int i=mFragmentManager.getBackStackEntryCount()-1;i>=0
+                    && !(mFragmentManager.getBackStackEntryAt(i).getName().equals(text));i--){
+                backStackEntries.add(mFragmentManager.getBackStackEntryAt(i));
+            }
+            mFragmentManager.popBackStack(text,FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            //for(FragmentManager.BackStackEntry entry:backStackEntries)
+            //mFragmentManager.p
+        }
+*/
         ArrayList<Fragment> fragments = new ArrayList<>();
-        if (mFragmentManager.getBackStackEntryCount() > 0) {
-            for (i = 0; i < mFragmentManager.getBackStackEntryCount()
-                    && (!mFragmentManager.getBackStackEntryAt(i).getName().equals(text)); i++) {
+        if (mFragmentManager.getBackStackEntryCount() > 0 && mFragmentManager.findFragmentByTag(text) != null) {
+            for (int i = mFragmentManager.getBackStackEntryCount() - 1; i >= 0
+                    && (!mFragmentManager.getBackStackEntryAt(i).getName().equals(text)); i--) {
                 fragments.add(mFragmentManager.findFragmentByTag(mFragmentManager.getBackStackEntryAt(i).getName()));
+                Logger.d(i + "<<<1");
             }
             mFragmentManager.popBackStack(text, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            for (Fragment fragment : fragments)
-                mFragmentManager.beginTransaction().add(fragment, fragment.getTag()).addToBackStack(fragment.getTag());
+            //  for(int i=0;i<5;i++)
+            for (int i=fragments.size()-1;i>=0;i--) {
+                Fragment fragment=fragments.get(i);
+                IFragment fragment1 = new IFragment();
+                fragment1.setArguments(fragment.getArguments());
+                mFragmentManager.beginTransaction().replace(R.id.fragmentHolder, fragment1, fragment.getTag()).addToBackStack(fragment.getTag()).commit();
+                Logger.d(">>>>>>>>"+fragment.getTag());
+            }
         }
         mFragment = new IFragment();
         Bundle bundle = new Bundle();
@@ -61,7 +84,16 @@ public class TwoButtonActivity extends ActionBarActivity {
         mFragment.setArguments(bundle);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragmentHolder, mFragment, text).addToBackStack(text).commit();
+        fragmentTransaction.replace(R.id.fragmentHolder, mFragment, text).addToBackStack(text).commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+       //
+        if(mFragmentManager.getBackStackEntryCount()>0)
+            mFragmentManager.popBackStack();
+        else
+            super.onBackPressed();
     }
 
     @Override

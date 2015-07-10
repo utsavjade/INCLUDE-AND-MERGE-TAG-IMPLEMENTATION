@@ -12,7 +12,8 @@
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickToSwitch"/>
+        android:onClick="onClickToSwitch"
+        android:text="HI" />
 
     <Button
 
@@ -20,12 +21,20 @@
         android:layout_below="@id/button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClickToSwitch" />
+        android:onClick="onClickToSwitch"
+        android:text="BYE" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_below="@id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onClickToSwitch"
+        android:text="YO"/>
 
     <FrameLayout
         android:id="@+id/fragmentHolder"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/button3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         />
+        android:layout_height="wrap_content" />
 </RelativeLayout>

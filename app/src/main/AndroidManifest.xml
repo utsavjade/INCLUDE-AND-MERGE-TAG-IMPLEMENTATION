@@ -32,6 +32,17 @@
             android:name=".TwoButtonTwoFragment.TwoButtonActivity"
             android:label="@string/title_activity_two_button" >
         </activity>
+
+        <service
+            android:name=".ServiceDatabaseEntry.MyService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".ServiceDatabaseEntry.MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
     </application>
 
 </manifest>
